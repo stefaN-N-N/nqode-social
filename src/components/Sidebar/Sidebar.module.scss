@@ -1,0 +1,7 @@
+@import 'src/styles/settings.scss';
+
+.c-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: $space;
+}
