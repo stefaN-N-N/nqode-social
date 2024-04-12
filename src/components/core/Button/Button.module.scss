@@ -1,28 +1,29 @@
 @import 'src/styles/settings.scss';
 
 .c-button {
-  padding: $space-xs $space-s;
-  margin: $space-s;
+  padding: $space $space-s;
 
-  background: $color-blue;
-  color: $color-white;
+  background: $color-brand-600;
+  color: $color-gray-0;
+  border-radius: $border-radius-sm;
 
   font-size: $fs-base;
-  border: 1px solid $color-blue;
+  font-weight: $fw-medium;
   cursor: pointer;
 
   &:hover {
-    background: $color-white;
-    color: $color-blue;
+    background: $color-brand-100;
+    color: $color-brand-700;
+    border: 2px solid $color-brand-700;
   }
 
   &--secondary {
-    background: $color-white;
-    color: $color-blue;
+    background: $color-gray-700;
+    color: $color-gray-0;
 
     &:hover {
-      background: $color-blue;
-      color: $color-white;
+      background: $color-gray-300;
+      color: $color-gray-700;
     }
   }
 }
