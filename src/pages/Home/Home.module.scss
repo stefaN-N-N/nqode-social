@@ -1,0 +1,7 @@
+@import 'src/styles/settings.scss';
+
+.c-home {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  column-gap: $space-l;
+}
