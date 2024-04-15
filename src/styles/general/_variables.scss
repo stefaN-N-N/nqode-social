@@ -43,6 +43,7 @@ $border-radius-lg: 9px;
 
 // Border
 $border-tiny: 1px;
+$border-base: 2px;
 
 // Fonts
 $font-family: 'Roboto', sans-serif;
@@ -81,3 +82,9 @@ $space-4xl: 4.4rem; // 44px
 
 // Letter spacing
 $letter-space-small: 0.3px;
+
+// Side bar
+$side-bar-width: 30rem; // 300px
+
+// Transition
+$transition-default: 0.3s;
