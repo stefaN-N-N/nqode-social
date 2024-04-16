@@ -17,9 +17,19 @@
     &::placeholder {
       color: $color-brand-300;
     }
+
+    &--error {
+      border: $border-tiny solid $color-red-700;
+    }
   }
 
   &__label {
     font-weight: $fw-medium;
+    color: $color-brand-700;
+  }
+
+  &__error-msg {
+    font-size: $fs-s;
+    color: $color-red-700;
   }
 }
