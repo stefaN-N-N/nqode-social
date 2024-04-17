@@ -5,11 +5,6 @@ import Feed from 'src/components/Feed/Feed';
 const Home = () => {
   return (
     <div className={`${classes['c-home']}`}>
-      <Sidebar>
-        <h1>Profile</h1>
-        <h2>Menu</h2>
-      </Sidebar>
-
       <Feed />
 
       <Sidebar>
