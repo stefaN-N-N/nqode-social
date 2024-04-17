@@ -18,8 +18,8 @@ body {
   min-height: $full-height;
 
   transition:
-    color 0.3s,
-    background-color 0.3s;
+    color $transition-default,
+    background-color $transition-default;
 }
 
 input,
@@ -43,8 +43,7 @@ input:focus,
 button:focus,
 textarea:focus,
 select:focus {
-  outline: 2px solid $color-brand-700;
-  outline-offset: -1px;
+  outline: $border-base solid $color-brand-700;
 }
 
 a {
