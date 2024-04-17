@@ -67,7 +67,7 @@ $line-height-base: 1.5;
 // Dimensions
 $full-width: 100%;
 $width-form: 40rem; // 400px
-$full-height: 100vh;
+$full-height: 100%;
 
 // Spacings
 $space-xs: 0.4rem; // 4px
@@ -88,3 +88,6 @@ $side-bar-width: 30rem; // 300px
 
 // Transition
 $transition-default: 0.3s;
+
+// Search bar
+$search-bar-width: 55rem; // 55px

@@ -1,14 +1,18 @@
 @import 'src/styles/settings.scss';
 
 .c-button {
-  padding: $space $space-s;
+  display: flex;
+  gap: $space-s;
+  align-items: center;
+  justify-content: center;
+
+  padding: $space $space-l;
 
   background: $color-brand-600;
   color: $color-gray-0;
   border-radius: $border-radius-sm;
 
   font-size: $fs-base;
-  font-weight: $fw-medium;
   cursor: pointer;
 
   &:hover {
@@ -29,5 +33,13 @@
       background: $color-gray-300;
       color: $color-gray-700;
     }
+  }
+
+  &--fit-content {
+    width: fit-content;
+  }
+
+  &--align-right {
+    margin-left: auto;
   }
 }

@@ -1,0 +1,33 @@
+@import 'src/styles/settings.scss';
+
+.c-search-container {
+  display: flex;
+  align-items: center;
+
+  height: $space-3xl;
+  background-color: $color-gray-50;
+  border-radius: $border-radius-md;
+
+  padding: 0 $space;
+
+  &__search {
+    background-color: transparent;
+    border: none;
+
+    height: $full-height;
+    width: $full-width;
+
+    font-size: $fs-base;
+    margin-left: $space;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  &__search-icon {
+    width: $space-l;
+    height: $space-l;
+    color: $color-gray-700;
+  }
+}
