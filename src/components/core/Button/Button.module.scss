@@ -17,6 +17,10 @@
     border: 2px solid $color-brand-700;
   }
 
+  &:disabled {
+    opacity: 0.35;
+  }
+
   &--secondary {
     background: $color-gray-700;
     color: $color-gray-0;
