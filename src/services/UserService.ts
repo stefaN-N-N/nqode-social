@@ -14,5 +14,5 @@ export const checkEmail = async (email: string) => {
 };
 
 export const search = async (searchTerm: string) => {
-  return await axios.get(`users/search?searchTerm=${searchTerm}`);
+  return await axios.get(`users/search?searchTerm=${searchTerm}&size=6&sort=firstName,asc`);
 };

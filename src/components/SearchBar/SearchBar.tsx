@@ -14,23 +14,28 @@ const SearchBar: React.FC<SearchBarProps> = ({ setSearchResult }) => {
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(e.target.value);
-    search(e.target.value)
-      .then((response) => {
-        setSearchResult(response.data);
-      })
-      .catch(() => {
-        toast.error('Something went wrong');
-      });
+    if (e.target.value.length >= 3) {
+      search(e.target.value)
+        .then((response) => {
+          setSearchResult(response.data);
+        })
+        .catch(() => {
+          toast.error('Something went wrong');
+        });
+    } else {
+      setSearchResult([]);
+    }
   };
 
   return (
-    <div className={`${classes['c-search-container']}`}>
-      <HiMiniMagnifyingGlass className={`${classes['c-search-container__search-icon']}`} />
+    <div className={`${classes['c-search']}`}>
+      <HiMiniMagnifyingGlass className={`${classes['c-search__icon']}`} />
       <input
         type='text'
-        className={`${classes['c-search-container__search']}`}
+        className={`${classes['c-search__input']}`}
         value={searchTerm}
         onChange={handleInputChange}
+        placeholder='Search for users...'
       />
     </div>
   );

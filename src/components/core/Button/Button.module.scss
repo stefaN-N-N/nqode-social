@@ -26,12 +26,13 @@
   }
 
   &--secondary {
-    background: $color-gray-700;
-    color: $color-gray-0;
+    background: $color-gray-0;
+    color: $color-brand-700;
+    border: $border-tiny solid $color-brand-700;
 
     &:hover {
-      background: $color-gray-300;
-      color: $color-gray-700;
+      background: $color-brand-700;
+      color: $color-gray-0;
     }
   }
 

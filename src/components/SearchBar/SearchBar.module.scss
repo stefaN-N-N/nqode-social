@@ -1,6 +1,6 @@
 @import 'src/styles/settings.scss';
 
-.c-search-container {
+.c-search {
   display: flex;
   align-items: center;
 
@@ -8,9 +8,9 @@
   background-color: $color-gray-50;
   border-radius: $border-radius-md;
 
-  padding: 0 $space;
+  padding: 0 $space-l;
 
-  &__search {
+  &__input {
     background-color: transparent;
     border: none;
 
@@ -18,14 +18,19 @@
     width: $full-width;
 
     font-size: $fs-base;
-    margin-left: $space;
+    margin-left: $space-l;
 
     &:focus {
       outline: none;
     }
+
+    &::placeholder {
+      color: $color-gray-300;
+      font-style: italic;
+    }
   }
 
-  &__search-icon {
+  &__icon {
     width: $space-l;
     height: $space-l;
     color: $color-gray-700;
