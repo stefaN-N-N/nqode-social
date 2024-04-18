@@ -12,3 +12,7 @@ export const checkUsername = async (username: string) => {
 export const checkEmail = async (email: string) => {
   return await axios.get(`users/check-email/${email}`);
 };
+
+export const search = async (searchTerm: string) => {
+  return await axios.get(`users/search?searchTerm=${searchTerm}&size=6&sort=firstName,asc`);
+};

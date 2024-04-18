@@ -1,0 +1,27 @@
+@import 'src/styles/settings.scss';
+
+.c-header-container {
+  display: grid;
+  grid-template-columns: $side-bar-width 2.5fr 1fr;
+  column-gap: $space-l;
+  align-items: center;
+
+  padding: $space-s $space-l;
+  margin: 0 auto;
+
+  background-color: $color-gray-0;
+
+  &__logo {
+    color: $color-brand-700;
+
+    font-weight: $fw-bold;
+    font-size: $space-3xl;
+    font-style: italic;
+    text-align: left;
+  }
+
+  &__icon {
+    height: $space-l;
+    width: $space-l;
+  }
+}
