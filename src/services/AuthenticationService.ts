@@ -2,8 +2,8 @@ import { jwtDecode } from 'jwt-decode';
 import { axios } from 'src/config/axios';
 import AuthenticationRequest from 'src/model/AuthenticationRequest';
 
-export const login = async (user: AuthenticationRequest) => {
-  return await axios.post('auth/authenticate', user);
+export const login = (user: AuthenticationRequest) => {
+  return axios.post('auth/authenticate', user);
 };
 
 export const logout = () => {
@@ -17,7 +17,7 @@ export const extractUsernameFromToken = (token: string) => {
 
 export const getUserFromToken = async (token: string) => {
   const username = extractUsernameFromToken(token);
-  await axios
-    .get(`users/${username}`)
-    .then((res) => localStorage.setItem('user', JSON.stringify(res.data)));
+  const response = await axios.get(`users/${username}`);
+
+  localStorage.setItem('user', JSON.stringify(response.data));
 };
