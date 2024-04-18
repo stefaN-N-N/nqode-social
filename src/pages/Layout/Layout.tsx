@@ -4,6 +4,7 @@ import Navigation from 'src/components/Navigation/Navigation';
 import Sidebar from 'src/components/Sidebar/Sidebar';
 import Container from 'src/components/core/Container/Container';
 import TopBar from 'src/components/TopBar/TopBar';
+import UserInfo from 'src/components/UserInfo/UserInfo';
 
 const Layout = () => {
   return (
@@ -11,7 +12,7 @@ const Layout = () => {
       <TopBar />
       <Container>
         <Sidebar>
-          <h2>Profile info</h2>
+          <UserInfo />
           <Navigation navItems={navItems} />
         </Sidebar>
 

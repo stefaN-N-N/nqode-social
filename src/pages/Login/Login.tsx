@@ -3,7 +3,7 @@ import Input from 'src/components/core/Input/Input';
 import classes from './Login.module.scss';
 import Button from 'src/components/core/Button/Button';
 import { Link, useNavigate } from 'react-router-dom';
-import { FormikHelpers, FormikProps, useFormik } from 'formik';
+import { FormikProps, useFormik } from 'formik';
 import AuthenticationRequest from 'src/model/AuthenticationRequest';
 import { loginSchema } from 'src/shared/schemas/Schemas';
 import { getUserFromToken, login } from 'src/services/AuthenticationService';
@@ -23,17 +23,12 @@ const Login = () => {
       onSubmit
     });
 
-  async function onSubmit(
-    values: AuthenticationRequest,
-    actions: FormikHelpers<AuthenticationRequest>
-  ) {
+  async function onSubmit(values: AuthenticationRequest) {
     login(values)
       .then((res) => {
         if (res.status === 200) {
           localStorage.setItem('token', JSON.stringify(res.data));
-          getUserFromToken(res.data.accessToken);
-          navigate('/home');
-          actions.resetForm();
+          getUserFromToken(res.data.accessToken).then(() => navigate('/home'));
         }
       })
       .catch(() => {
