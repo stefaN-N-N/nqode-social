@@ -1,7 +1,12 @@
-import React from 'react';
+import CreatePost from '../CreatePost/CreatePost';
+import classes from './Feed.module.scss';
 
 const Feed = () => {
-  return <div>Feed</div>;
+  return (
+    <div className={`${classes['c-feed']}`}>
+      <CreatePost />
+    </div>
+  );
 };
 
 export default Feed;

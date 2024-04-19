@@ -1,0 +1,81 @@
+@import 'src/styles/settings.scss';
+
+.c-create-post {
+  display: flex;
+  flex-direction: column;
+  gap: $space;
+
+  background-color: $color-gray-0;
+
+  width: $full-width;
+
+  padding: $space-m;
+  border-radius: $border-radius-md;
+
+  &__content-container {
+    display: flex;
+    gap: $space;
+    align-items: center;
+
+    background-color: $color-brand-50;
+
+    border-radius: $border-radius-md;
+    border: $border-tiny solid $color-brand-700;
+
+    padding: $space-m;
+  }
+
+  &__upload-image-container {
+    display: flex;
+    align-items: center;
+    gap: $space-s;
+  }
+
+  &__body-container {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__avatar {
+    width: $space-4xl;
+    height: $space-4xl;
+
+    border: $border-tiny solid $color-brand-700;
+    border-radius: 50%;
+  }
+
+  &__input {
+    width: $full-width;
+    background-color: transparent;
+
+    border: none;
+    resize: none;
+
+    padding: $space-s;
+
+    &::placeholder {
+      font-style: italic;
+      color: $color-gray-400;
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  &__label {
+    color: $color-brand-700;
+    font-weight: $fw-medium;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  &__icon {
+    width: $space-xl;
+    height: $space-xl;
+
+    color: $color-brand-700;
+  }
+}

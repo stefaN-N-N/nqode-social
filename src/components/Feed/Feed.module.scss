@@ -1,0 +1,9 @@
+@import 'src/styles/settings.scss';
+
+.c-feed {
+  display: flex;
+  flex-direction: column;
+  gap: $space;
+
+  margin-top: $space;
+}
