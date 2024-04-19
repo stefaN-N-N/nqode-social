@@ -1,3 +1,4 @@
+import AuthenticationRequest from 'src/model/AuthenticationRequest';
 import UserRegister from 'src/model/UserRegister';
 import { checkEmail, checkUsername } from 'src/services/UserService';
 import * as yup from 'yup';
@@ -34,4 +35,9 @@ export const registerSchema: yup.Schema<UserRegister> = yup.object().shape({
     .string()
     .min(6, 'Password must be at least 6 characters')
     .required('Password is required')
+});
+
+export const loginSchema: yup.Schema<AuthenticationRequest> = yup.object().shape({
+  username: yup.string().required('Enter username'),
+  password: yup.string().required('Enter password')
 });

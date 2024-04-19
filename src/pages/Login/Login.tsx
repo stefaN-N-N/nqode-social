@@ -1,24 +1,45 @@
-import React, { ChangeEvent, useState } from 'react';
 import Form from 'src/components/core/Form/Form';
 import Input from 'src/components/core/Input/Input';
 import classes from './Login.module.scss';
 import Button from 'src/components/core/Button/Button';
+import { Link, useNavigate } from 'react-router-dom';
+import { FormikHelpers, FormikProps, useFormik } from 'formik';
+import AuthenticationRequest from 'src/model/AuthenticationRequest';
+import { loginSchema } from 'src/shared/schemas/Schemas';
+import { getUserFromToken, login } from 'src/services/AuthenticationService';
+import { useState } from 'react';
 
 const Login = () => {
-  const [formData, setFormData] = useState({
-    username: '',
-    password: ''
-  });
+  const navigate = useNavigate();
+  const [wrongCredentials, setWrongCredentials] = useState(false);
 
-  const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
-  };
+  const { values, isSubmitting, handleChange, handleSubmit }: FormikProps<AuthenticationRequest> =
+    useFormik({
+      initialValues: {
+        username: '',
+        password: ''
+      },
+      validationSchema: loginSchema,
+      onSubmit
+    });
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    console.log(formData.username + ' ' + formData.password);
-  };
+  async function onSubmit(
+    values: AuthenticationRequest,
+    actions: FormikHelpers<AuthenticationRequest>
+  ) {
+    login(values)
+      .then((res) => {
+        if (res.status === 200) {
+          localStorage.setItem('token', JSON.stringify(res.data));
+          getUserFromToken(res.data.accessToken);
+          navigate('/home');
+          actions.resetForm();
+        }
+      })
+      .catch(() => {
+        setWrongCredentials(true);
+      });
+  }
 
   return (
     <div className={`${classes['c-login-container']}`}>
@@ -28,21 +49,31 @@ const Login = () => {
             type='text'
             name='username'
             placeholder='username'
-            value={formData.username}
-            onChange={handleInputChange}
+            value={values.username}
+            onChange={handleChange}
           />
           <Input
             type='password'
             name='password'
             placeholder='password'
-            value={formData.password}
-            onChange={handleInputChange}
+            value={values.password}
+            onChange={handleChange}
           />
+          {wrongCredentials ? (
+            <label className={`${classes['c-login-container__error']}`}>
+              Wrong username or password. <br />
+              Please try again.
+            </label>
+          ) : (
+            <></>
+          )}
           <label className={`${classes['c-login-container__label']}`}>
             Don't have account?{' '}
-            <span className={`${classes['c-login-container__label--bold']}`}>Sign up</span>
+            <Link to='/register' className={`${classes['c-login-container__label--bold']}`}>
+              Sign up
+            </Link>
           </label>
-          <Button label='Login' />
+          <Button type='submit' disabled={isSubmitting} label='Login' />
         </Form>
       </div>
     </div>
