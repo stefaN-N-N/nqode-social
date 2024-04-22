@@ -5,8 +5,14 @@ import { HiOutlineCamera } from 'react-icons/hi2';
 import { createPost } from 'src/services/PostService';
 import { toast } from 'react-toastify';
 import UserResponse from 'src/model/UserResponse';
+import PostResponse from 'src/model/PostResponse';
 
-const CreatePost = () => {
+interface CreatePostProps {
+  updatePosts: React.Dispatch<React.SetStateAction<PostResponse[]>>;
+  posts: PostResponse[];
+}
+
+const CreatePost: React.FC<CreatePostProps> = ({ updatePosts, posts }) => {
   const [content, setContent] = useState('');
   const [file, setFile] = useState<File | null>(null);
   const [user, setUser] = useState<UserResponse>();
@@ -43,9 +49,10 @@ const CreatePost = () => {
     }
 
     createPost({ content, file, authorId: user.id })
-      .then(() => {
+      .then((response) => {
         setContent('');
         setFile(null);
+        updatePosts([...posts, response.data]);
       })
       .catch(() => {
         toast.error('Something went wrong');
