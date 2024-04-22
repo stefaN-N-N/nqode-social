@@ -15,3 +15,7 @@ export const createPost = (post: PostCreate) => {
     }
   });
 };
+
+export const getPosts = () => {
+  return axios.get('posts');
+};

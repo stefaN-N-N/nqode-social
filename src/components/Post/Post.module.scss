@@ -1,0 +1,43 @@
+@import 'src/styles/settings.scss';
+
+.c-post {
+  background-color: $color-gray-0;
+  border-radius: $border-radius-md;
+
+  display: flex;
+  flex-direction: column;
+  gap: $space;
+
+  padding: $space;
+
+  &__header {
+    display: flex;
+    gap: $space;
+  }
+
+  &__avatar {
+    height: $space-4xl;
+    width: $space-4xl;
+
+    border: $border-tiny solid $color-brand-700;
+    border-radius: 50%;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__created-at {
+    color: $color-gray-400;
+    font-size: $fs-s;
+  }
+
+  &__image {
+    max-width: $full-width;
+    height: $post-img-height;
+    object-fit: contain;
+
+    border-radius: $border-radius-md;
+  }
+}
