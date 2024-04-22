@@ -18,7 +18,7 @@
   &:hover {
     background: $color-brand-100;
     color: $color-brand-700;
-    border: 2px solid $color-brand-700;
+    outline: $border-tiny solid $color-brand-700;
   }
 
   &:disabled {

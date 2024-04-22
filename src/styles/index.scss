@@ -49,3 +49,7 @@ select:focus {
 a {
   color: inherit;
 }
+
+input[type='file'] {
+  display: none;
+}
