@@ -16,3 +16,11 @@ export const checkEmail = async (email: string) => {
 export const search = async (searchTerm: string) => {
   return await axios.get(`users/search?searchTerm=${searchTerm}&size=6&sort=firstName,asc`);
 };
+
+export const getAllPosts = () => {
+  return axios.get(`posts`);
+};
+
+export const downloadFile = (id: number) => {
+  return axios.get(`file?id=${id}`);
+};
