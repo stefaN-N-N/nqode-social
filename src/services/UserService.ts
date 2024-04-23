@@ -1,6 +1,7 @@
 import { axios } from 'src/config/axios';
 import UserRegister from 'src/model/UserRegister';
 import UserUpdate from 'src/model/UserUpdate';
+import UserResponse from 'src/model/UserResponse';
 
 export const register = (user: UserRegister) => {
   return axios.post('auth/register', user);
@@ -32,4 +33,8 @@ export const isEmailEditable = (email: string, id: string) => {
 
 export const update = (user: UserUpdate, id: string) => {
   return axios.put(`users/${id}`, user);
+};
+
+export const getUserById = (id: number) => {
+  return axios.get<UserResponse>(`users?id=${id}`);
 };

@@ -1,5 +1,6 @@
 import { axios } from 'src/config/axios';
 import PostCreate from 'src/model/PostCreate';
+import PostResponse from 'src/model/PostResponse';
 
 export const createPost = (post: PostCreate) => {
   const multipartFile = new FormData();
@@ -17,5 +18,9 @@ export const createPost = (post: PostCreate) => {
 };
 
 export const getPosts = () => {
-  return axios.get('posts');
+  return axios.get<PostResponse[]>('posts');
+};
+
+export const getAllPostsByAuthor = (id: number) => {
+  return axios.get<PostResponse[]>(`users/${id}/posts`);
 };
