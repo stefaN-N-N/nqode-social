@@ -5,15 +5,16 @@ import SearchResultItem from '../core/SearchResultItem/SearchResultItem';
 
 interface SearchResultProps {
   searchResult: UserResponse[];
+  setSearchResult: React.Dispatch<React.SetStateAction<UserResponse[]>>;
 }
 
-const SearchResult: React.FC<SearchResultProps> = ({ searchResult }) => {
+const SearchResult: React.FC<SearchResultProps> = ({ searchResult, setSearchResult }) => {
   if (searchResult.length === 0) return;
 
   return (
     <div className={classes['c-search-result']}>
       {searchResult.map((user) => (
-        <SearchResultItem user={user} key={user.id} />
+        <SearchResultItem user={user} key={user.id} setSearchResult={setSearchResult} />
       ))}
     </div>
   );

@@ -38,3 +38,7 @@ export const update = (user: UserUpdate, id: string) => {
 export const getUserById = (id: number) => {
   return axios.get<UserResponse>(`users?id=${id}`);
 };
+
+export const getFriends = (id: number) => {
+  return axios.get<UserResponse[]>(`users/${id}/friends`);
+};
