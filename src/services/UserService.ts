@@ -1,5 +1,6 @@
 import { axios } from 'src/config/axios';
 import UserRegister from 'src/model/UserRegister';
+import UserUpdate from 'src/model/UserUpdate';
 
 export const register = (user: UserRegister) => {
   return axios.post('auth/register', user);
@@ -19,4 +20,16 @@ export const search = (searchTerm: string) => {
 
 export const countUserPosts = (id: number) => {
   return axios.get(`users/${id}/count-posts`);
+};
+
+export const isUsernameEditable = (username: string, id: string) => {
+  return axios.get(`users/editable-username/${username}/${id}`);
+};
+
+export const isEmailEditable = (email: string, id: string) => {
+  return axios.get(`users/editable-email/${email}/${id}`);
+};
+
+export const update = (user: UserUpdate, id: string) => {
+  return axios.put(`users/${id}`, user);
 };
