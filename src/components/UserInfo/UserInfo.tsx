@@ -1,18 +1,12 @@
 import { useEffect, useState } from 'react';
 import classes from './UserInfo.module.scss';
-import UserResponse from 'src/model/UserResponse';
 import { countUserPosts } from 'src/services/UserService';
+import { loggedUser } from '../state/atom';
+import { useRecoilState } from 'recoil';
 
 const UserInfo = () => {
-  const [user, setUser] = useState<UserResponse>();
+  const [user] = useRecoilState(loggedUser);
   const [postsNumber, setPostsNumber] = useState();
-
-  useEffect(() => {
-    const userString = localStorage.getItem('user');
-    if (userString) {
-      setUser(JSON.parse(userString));
-    }
-  }, []);
 
   useEffect(() => {
     if (user?.id) {
