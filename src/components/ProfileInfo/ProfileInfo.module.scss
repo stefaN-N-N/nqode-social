@@ -1,0 +1,60 @@
+@import 'src/styles/settings.scss';
+
+.c-profile-info {
+  display: flex;
+  gap: $space;
+
+  padding: $space;
+
+  &__avatar {
+    width: $profile-info-avatar;
+    height: $profile-info-avatar;
+    color: $color-brand-700;
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: $space;
+
+    margin: 0 auto;
+  }
+
+  &__name-section {
+    display: flex;
+    align-items: center;
+    gap: $space;
+  }
+
+  &__username {
+    color: $color-gray-400;
+
+    font-style: italic;
+    font-size: $space-xl;
+  }
+
+  &__additional-info-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: $space-6xl;
+  }
+
+  &__additional-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__number {
+    font-weight: $fw-semi-bold;
+    font-size: $space-l;
+  }
+
+  &__label {
+    color: $color-gray-400;
+    font-size: $space-l;
+  }
+}

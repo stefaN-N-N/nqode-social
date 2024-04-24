@@ -1,0 +1,53 @@
+@import 'src/styles/settings.scss';
+
+.c-create-comment {
+  display: flex;
+  gap: $space;
+  padding: $space;
+
+  &__avatar {
+    color: $color-brand-700;
+    height: $space-3xl;
+    width: $space-3xl;
+  }
+
+  &__send-btn {
+    color: $color-brand-700;
+    height: $space-xl;
+    width: $space-xl;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  &__input-section {
+    display: flex;
+    align-items: center;
+    background-color: $color-gray-50;
+
+    padding: 0 $space;
+
+    border-radius: $border-radius-md;
+    border: $border-tiny solid $color-gray-200;
+
+    width: $full-width;
+  }
+
+  &__input {
+    background-color: transparent;
+    border: none;
+
+    width: $full-width;
+    height: $full-height;
+
+    &:focus {
+      outline: none;
+    }
+
+    &::placeholder {
+      font-style: italic;
+      color: $color-gray-300;
+    }
+  }
+}

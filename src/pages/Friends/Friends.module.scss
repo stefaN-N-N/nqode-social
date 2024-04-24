@@ -1,0 +1,11 @@
+@import 'src/styles/settings.scss';
+
+.c-friends {
+  display: flex;
+  flex-direction: column;
+  gap: $space;
+
+  margin-top: $space;
+
+  width: 100rem;
+}

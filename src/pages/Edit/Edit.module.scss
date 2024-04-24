@@ -1,0 +1,15 @@
+@import 'src/styles/settings.scss';
+
+.c-edit-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: $full-height;
+
+  &__form {
+    margin: $space-4xl auto;
+
+    width: $with-edit-form;
+  }
+}

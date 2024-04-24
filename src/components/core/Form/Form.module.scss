@@ -1,0 +1,25 @@
+@import 'src/styles/settings.scss';
+
+.c-form {
+  display: flex;
+  flex-direction: column;
+  gap: $space-m;
+
+  padding: $space-2xl $space-3xl;
+
+  border: $border-tiny solid $color-brand-700;
+  border-radius: $border-radius-md;
+
+  font-size: $fs-base;
+
+  &__title {
+    margin: $space-m 0;
+
+    color: $color-brand-700;
+
+    font-weight: $fw-bold;
+    font-size: $space-4xl;
+    font-style: italic;
+    text-align: center;
+  }
+}

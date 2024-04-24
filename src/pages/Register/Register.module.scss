@@ -1,0 +1,30 @@
+@import 'src/styles/settings.scss';
+
+.c-register-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: $full-height;
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+
+    margin: $space-4xl auto;
+
+    width: $width-form;
+  }
+
+  &__label {
+    margin: $space-m 0;
+
+    text-align: center;
+    letter-spacing: $letter-space-small;
+
+    &--bold {
+      font-weight: $fw-semi-bold;
+      color: $color-brand-700;
+    }
+  }
+}

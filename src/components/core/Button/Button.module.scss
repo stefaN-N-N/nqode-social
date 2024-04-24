@@ -1,28 +1,57 @@
 @import 'src/styles/settings.scss';
 
 .c-button {
-  padding: $space-xs $space-s;
-  margin: $space-s;
+  display: flex;
+  gap: $space-s;
+  align-items: center;
+  justify-content: center;
 
-  background: $color-blue;
-  color: $color-white;
+  padding: $space $space-l;
+
+  background: $color-brand-600;
+  color: $color-gray-0;
+  border-radius: $border-radius-sm;
 
   font-size: $fs-base;
-  border: 1px solid $color-blue;
   cursor: pointer;
 
   &:hover {
-    background: $color-white;
-    color: $color-blue;
+    background: $color-brand-100;
+    color: $color-brand-700;
+    outline: $border-tiny solid $color-brand-700;
+  }
+
+  &:disabled {
+    opacity: 0.35;
   }
 
   &--secondary {
-    background: $color-white;
-    color: $color-blue;
+    background: $color-gray-0;
+    color: $color-brand-700;
+    border: $border-tiny solid $color-brand-700;
 
     &:hover {
-      background: $color-blue;
-      color: $color-white;
+      background: $color-brand-700;
+      color: $color-gray-0;
+    }
+  }
+
+  &--fit-content {
+    width: fit-content;
+  }
+
+  &--align-right {
+    margin-left: auto;
+  }
+
+  &--error {
+    background-color: $color-red-700;
+    padding: $space-xs $space;
+
+    &:hover {
+      color: $color-red-700;
+      background-color: $color-red-300;
+      outline: $border-tiny solid $color-red-700;
     }
   }
 }

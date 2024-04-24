@@ -3,12 +3,56 @@ $color-black: #000;
 $color-white: #fff;
 $color-blue: #007bd3;
 
+$color-gray-0: #fff;
+$color-gray-50: #f9fafb;
+$color-gray-200: #e5e5e5;
+$color-gray-300: #d4d4d4;
+$color-gray-400: #a3a3a3;
+$color-gray-500: #737373;
+$color-gray-600: #525252;
+$color-gray-700: #404040;
+$color-gray-800: #262626;
+$color-gray-900: #171717;
+$color-gray-950: #0a0a0a;
+
+$color-brand-50: #eef2ff;
+$color-brand-100: #e0e7ff;
+$color-brand-200: #c7d2fe;
+$color-brand-300: #a5b4fc;
+$color-brand-400: #818cf8;
+$color-brand-500: #6366f1;
+$color-brand-600: #4f46e5;
+$color-brand-700: #4338ca;
+$color-brand-800: #3730a3;
+$color-brand-900: #312e81;
+
+$color-red-100: #fee2e2;
+$color-red-300: #fca5a5;
+$color-red-700: #b91c1c;
+
+// Shadows
+$shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04);
+$shadow-md: 0px 0.6rem 2.4rem rgba(0, 0, 0, 0.06);
+$shadow-lg: 0 2.4rem 3.2rem rgba(0, 0, 0, 0.12);
+
+// Border radius
+$border-radius-lg: 3px;
+$border-radius-sm: 5px;
+$border-radius-md: 7px;
+$border-radius-lg: 9px;
+$border-radius-circle: 50%;
+
+// Border
+$border-tiny: 1px;
+$border-base: 2px;
+
 // Fonts
 $font-family: 'Roboto', sans-serif;
 
-$fs-small: 0.75rem; // 12px
-$fs-base: 16px;
-$fs-medium: 1.25rem; // 20px
+$fs-xs: 0.75rem; // 12px
+$fs-s: 1.4rem; // 14 px
+$fs-base: 1.6rem; // 16px
+$fs-medium: 2rem; // 20px
 
 // Font weight
 $fw-base: 400;
@@ -18,9 +62,46 @@ $fw-bold-light: 700;
 $fw-bold: 800;
 $fw-extra-bold: 900;
 
+// Line height
+$line-height-base: 1.5;
+
+// Dimensions
+$full-width: 100%;
+$width-form: 40rem; // 400px
+$with-edit-form: 60rem; // 600px
+$full-height: 100%;
+
 // Spacings
-$space-xs: 0.25rem; // 4px
-$space-s: 0.5rem; // 8px
-$space: 1rem; // 16px
-$space-m: 1.25rem; // 20px
-$space-l: 1.5rem; // 24px
+$space-xs: 0.4rem; // 4px
+$space-s: 0.8rem; // 8px
+$space: 1.2rem; // 12px
+$space-m: 1.6rem; // 16px
+$space-l: 2rem; // 20px
+$space-xl: 2.4rem; // 24px
+$space-2xl: 3.2rem; // 32px
+$space-3xl: 4rem; // 40px
+$space-4xl: 4.4rem; // 44px
+$space-5xl: 5.6rem; // 56px
+$space-6xl: 6.5rem; // 65px
+
+// Letter spacing
+$letter-space-small: 0.3px;
+
+// Side bar
+$side-bar-width: 30rem; // 300px
+
+// Transition
+$transition-default: 0.3s;
+
+// Search bar
+$search-bar-width: 55rem; // 55px
+$search-result-top-position: 60px;
+
+// User info in home page
+$user-info-height: 190px;
+
+// Post
+$post-img-height: 50rem; // 500px
+
+// Profile info avatar
+$profile-info-avatar: 20rem; // 200px

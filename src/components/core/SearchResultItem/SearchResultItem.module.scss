@@ -1,0 +1,10 @@
+@import 'src/styles/settings.scss';
+
+.c-search-result-item {
+  padding: $space-xs $space-m;
+  border-radius: $border-radius-sm;
+
+  &:hover {
+    background-color: $color-gray-200;
+  }
+}

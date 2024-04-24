@@ -1,3 +1,54 @@
 @import './general/reset.scss';
 @import './general/fonts.scss';
 @import './general/variables.scss';
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  background-color: $color-gray-50;
+  color: $color-gray-700;
+
+  font-family: $font-family;
+  font-weight: $fw-base;
+  font-size: $fs-base;
+  line-height: $line-height-base;
+
+  min-height: $full-height;
+
+  transition:
+    color $transition-default,
+    background-color $transition-default;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+*:disabled {
+  cursor: not-allowed;
+}
+
+input:disabled {
+  background-color: $color-gray-200;
+  color: $color-gray-500;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: $border-tiny solid $color-brand-700;
+}
+
+a {
+  color: inherit;
+}
+
+input[type='file'] {
+  display: none;
+}

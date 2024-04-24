@@ -1,0 +1,12 @@
+@import 'src/styles/settings.scss';
+
+.c-search-result {
+  background-color: $color-gray-0;
+  box-shadow: $shadow-sm;
+
+  position: absolute;
+  top: $search-result-top-position;
+  left: $side-bar-width + 2 * $space-l;
+
+  width: $search-bar-width;
+}

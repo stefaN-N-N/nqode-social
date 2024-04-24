@@ -1,0 +1,12 @@
+@import 'src/styles/settings.scss';
+
+.c-container {
+  display: grid;
+  grid-template-columns: $side-bar-width auto;
+  column-gap: $space-l;
+
+  padding: 0 $space-l;
+  margin: 0 auto;
+
+  background-color: transparent;
+}

@@ -1,0 +1,15 @@
+@import 'src/styles/settings.scss';
+
+.c-profile {
+  display: grid;
+  grid-template-columns: 2.5fr 1fr;
+  column-gap: $space-l;
+
+  margin-top: $space;
+
+  &__main-section {
+    display: flex;
+    flex-direction: column;
+    gap: $space;
+  }
+}
