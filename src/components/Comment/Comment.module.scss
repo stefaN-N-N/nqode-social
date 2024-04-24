@@ -1,0 +1,42 @@
+@import 'src/styles/settings.scss';
+
+.c-comment {
+  display: flex;
+  flex-direction: column;
+
+  background-color: $color-gray-50;
+
+  padding: $space;
+  border-radius: $border-radius-md;
+  border: $border-tiny solid $color-gray-300;
+  gap: $space;
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__user-info {
+    display: flex;
+    align-items: center;
+    gap: $space-xs;
+  }
+
+  &__avatar {
+    color: $color-brand-700;
+    height: $space-3xl;
+    width: $space-3xl;
+  }
+
+  &__created-at {
+    color: $color-gray-400;
+    font-size: $fs-s;
+  }
+
+  &__delete-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: $space;
+  }
+}

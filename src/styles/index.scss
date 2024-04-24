@@ -40,7 +40,6 @@ input:disabled {
 }
 
 input:focus,
-button:focus,
 textarea:focus,
 select:focus {
   outline: $border-tiny solid $color-brand-700;

@@ -1,7 +1,7 @@
 import React from 'react';
 import classes from './Button.module.scss';
 
-type modifiers = 'fit-content' | 'align-right';
+type modifiers = 'fit-content' | 'align-right' | 'error';
 
 interface ButtonProps {
   variant?: 'secondary';
