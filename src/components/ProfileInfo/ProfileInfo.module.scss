@@ -9,9 +9,7 @@
   &__avatar {
     width: $profile-info-avatar;
     height: $profile-info-avatar;
-
-    border: $border-tiny solid $color-brand-700;
-    border-radius: 50%;
+    color: $color-brand-700;
   }
 
   &__container {

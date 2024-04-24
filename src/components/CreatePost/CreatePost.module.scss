@@ -39,9 +39,7 @@
   &__avatar {
     width: $space-4xl;
     height: $space-4xl;
-
-    border: $border-tiny solid $color-brand-700;
-    border-radius: 50%;
+    color: $color-brand-700;
   }
 
   &__input {
