@@ -1,21 +1,19 @@
 import React, { useEffect, useState } from 'react';
 import Button from '../core/Button/Button';
 import classes from './CreatePost.module.scss';
-import { HiOutlineCamera } from 'react-icons/hi2';
+import { HiOutlineCamera, HiOutlineUserCircle } from 'react-icons/hi2';
 import { createPost } from 'src/services/PostService';
 import { toast } from 'react-toastify';
 import UserResponse from 'src/model/UserResponse';
-import PostResponse from 'src/model/PostResponse';
+import { useRecoilState } from 'recoil';
+import { postsState, totalPostsState } from '../state/atom';
 
-interface CreatePostProps {
-  updatePosts: React.Dispatch<React.SetStateAction<PostResponse[]>>;
-  posts: PostResponse[];
-}
-
-const CreatePost: React.FC<CreatePostProps> = ({ updatePosts, posts }) => {
+const CreatePost = () => {
   const [content, setContent] = useState('');
   const [file, setFile] = useState<File | null>(null);
   const [user, setUser] = useState<UserResponse>();
+  const [posts, setPosts] = useRecoilState(postsState);
+  const [, setTotalPosts] = useRecoilState(totalPostsState);
 
   useEffect(() => {
     const userString = localStorage.getItem('user');
@@ -52,7 +50,8 @@ const CreatePost: React.FC<CreatePostProps> = ({ updatePosts, posts }) => {
       .then((response) => {
         setContent('');
         setFile(null);
-        updatePosts([...posts, response.data]);
+        setPosts([...posts, response.data]);
+        setTotalPosts((prev) => prev + 1);
       })
       .catch(() => {
         toast.error('Something went wrong');
@@ -62,10 +61,7 @@ const CreatePost: React.FC<CreatePostProps> = ({ updatePosts, posts }) => {
   return (
     <form className={`${classes['c-create-post']}`} onSubmit={handleSubmit}>
       <div className={`${classes['c-create-post__content-container']}`}>
-        <img
-          src='https://picsum.photos/id/237/50/50'
-          className={`${classes['c-create-post__avatar']}`}
-        />
+        <HiOutlineUserCircle className={`${classes['c-create-post__avatar']}`} />
         <textarea
           className={`${classes['c-create-post__input']}`}
           placeholder='What do you want to share?'

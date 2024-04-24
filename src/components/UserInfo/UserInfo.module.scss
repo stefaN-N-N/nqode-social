@@ -24,9 +24,7 @@
   &__avatar {
     height: $space-5xl;
     width: $space-5xl;
-
-    border-radius: $border-radius-circle;
-    border: $border-base solid $color-brand-700;
+    color: $color-brand-700;
   }
 
   &__username {

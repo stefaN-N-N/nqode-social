@@ -4,7 +4,6 @@ import Post from 'src/components/Post/Post';
 import PostResponse from 'src/model/PostResponse';
 import { getAllPostsByAuthor } from 'src/services/PostService';
 import classes from './Profile.module.scss';
-import Sidebar from 'src/components/Sidebar/Sidebar';
 import UserResponse from 'src/model/UserResponse';
 import { getUserById } from 'src/services/UserService';
 import ProfileInfo from 'src/components/ProfileInfo/ProfileInfo';
@@ -44,10 +43,6 @@ const Profile = () => {
           <Post post={post} key={post.id} />
         ))}
       </div>
-      <Sidebar>
-        <h1>Requests</h1>
-        <h2>Friends</h2>
-      </Sidebar>
     </div>
   );
 };

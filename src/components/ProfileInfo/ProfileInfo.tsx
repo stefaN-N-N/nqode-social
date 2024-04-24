@@ -1,27 +1,28 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import UserResponse from 'src/model/UserResponse';
 import classes from './ProfileInfo.module.scss';
 import { countUserPosts, getFriends } from 'src/services/UserService';
 import Button from '../core/Button/Button';
 import { useRecoilState } from 'recoil';
-import { friendsState, loggedUser } from '../state/atom';
+import { friendsState, loggedUser, totalPostsState } from '../state/atom';
 import { sendRequest, unfriend } from 'src/services/FrienshipService';
 import { toast } from 'react-toastify';
+import { HiOutlineUserCircle } from 'react-icons/hi2';
 
 interface ProfileInfoProps {
   user: UserResponse;
 }
 
 const ProfileInfo: React.FC<ProfileInfoProps> = ({ user }) => {
-  const [postsNumber, setPostsNumber] = useState();
   const [currentLoggedUser, setCurrentLoggedUser] = useRecoilState(loggedUser);
   const [friends, setFriends] = useRecoilState(friendsState);
+  const [totalPosts, setTotalPosts] = useRecoilState(totalPostsState);
 
   useEffect(() => {
     if (user.id) {
-      countUserPosts(user.id).then((res) => setPostsNumber(res.data));
+      countUserPosts(user.id).then((res) => setTotalPosts(res.data));
     }
-  }, [user.id]);
+  }, [setTotalPosts, user.id]);
 
   useEffect(() => {
     getFriends(user.id).then((response) => setFriends(response.data));
@@ -39,13 +40,21 @@ const ProfileInfo: React.FC<ProfileInfoProps> = ({ user }) => {
   };
 
   const handleUnfriend = () => {
-    unfriend(user.id, currentLoggedUser.id).then(() => {
-      setCurrentLoggedUser((prevUser) => ({
-        ...prevUser,
-        friendsNumber: prevUser.friendsNumber - 1
-      }));
-      setFriends(friends.filter((friend) => friend.id !== user.id));
-    });
+    unfriend(user.id, currentLoggedUser.id)
+      .then(() => {
+        setCurrentLoggedUser((prevUser) => ({
+          ...prevUser,
+          friendsNumber: prevUser.friendsNumber - 1
+        }));
+
+        setFriends((friends) => {
+          return friends.filter((friend) => friend.id !== user.id);
+        });
+        toast.info('Friend removed');
+      })
+      .catch(() => {
+        toast.error('Something went wrong');
+      });
   };
 
   const checkFrienship = () => {
@@ -54,10 +63,7 @@ const ProfileInfo: React.FC<ProfileInfoProps> = ({ user }) => {
 
   return (
     <div className={`${classes['c-profile-info']}`}>
-      <img
-        src='https://picsum.photos/id/1/200/200'
-        className={`${classes['c-profile-info__avatar']}`}
-      />
+      <HiOutlineUserCircle className={`${classes['c-profile-info__avatar']}`} />
       <div className={`${classes['c-profile-info__container']}`}>
         <div className={`${classes['c-profile-info__name-section']}`}>
           <h1>{`${user.firstName} ${user.lastName}`}</h1>
@@ -74,7 +80,7 @@ const ProfileInfo: React.FC<ProfileInfoProps> = ({ user }) => {
             <span className={`${classes['c-profile-info__label']}`}>Friends</span>
           </div>
           <div className={`${classes['c-profile-info__additional-info']}`}>
-            <span className={`${classes['c-profile-info__number']}`}>{postsNumber}</span>
+            <span className={`${classes['c-profile-info__number']}`}>{totalPosts}</span>
             <span className={`${classes['c-profile-info__label']}`}>Posts</span>
           </div>
 

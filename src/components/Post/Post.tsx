@@ -7,6 +7,7 @@ import Comment from '../Comment/Comment';
 import CreateComment from '../CreateComment/CreateComment';
 import { useRecoilState } from 'recoil';
 import { commentsState } from '../state/atom';
+import { HiOutlineUserCircle } from 'react-icons/hi2';
 
 interface PostProps {
   post: PostResponse;
@@ -33,7 +34,7 @@ const Post: React.FC<PostProps> = ({ post }) => {
   return (
     <div className={`${classes['c-post']}`}>
       <div className={`${classes['c-post__header']}`}>
-        <img src='https://picsum.photos/id/1/200/200' className={`${classes['c-post__avatar']}`} />
+        <HiOutlineUserCircle className={`${classes['c-post__avatar']}`} />
         <div className={`${classes['c-post__info']}`}>
           <h4>{post.user}</h4>
           <span className={`${classes['c-post__created-at']}`}>

@@ -3,6 +3,7 @@ import classes from './UserInfo.module.scss';
 import { countUserPosts } from 'src/services/UserService';
 import { loggedUser } from '../state/atom';
 import { useRecoilState } from 'recoil';
+import { HiOutlineUserCircle } from 'react-icons/hi2';
 
 const UserInfo = () => {
   const [user] = useRecoilState(loggedUser);
@@ -17,10 +18,7 @@ const UserInfo = () => {
   return (
     <div className={`${classes['c-user-info']}`}>
       <div className={`${classes['c-user-info__header']}`}>
-        <img
-          src='https://picsum.photos/id/237/200/200'
-          className={`${classes['c-user-info__avatar']}`}
-        />
+        <HiOutlineUserCircle className={`${classes['c-user-info__avatar']}`} />
         <div className={`${classes['c-user-info__name-container']}`}>
           <h4>{`${user?.firstName} ${user?.lastName}`}</h4>
           <span className={`${classes['c-user-info__username']}`}>{user?.username}</span>
