@@ -43,4 +43,15 @@
   &--align-right {
     margin-left: auto;
   }
+
+  &--error {
+    background-color: $color-red-700;
+    padding: $space-xs $space;
+
+    &:hover {
+      color: $color-red-700;
+      background-color: $color-red-300;
+      outline: $border-tiny solid $color-red-700;
+    }
+  }
 }

@@ -1,4 +1,5 @@
 import { axios } from 'src/config/axios';
+import CommentResponse from 'src/model/CommentResponse';
 import PostCreate from 'src/model/PostCreate';
 import PostResponse from 'src/model/PostResponse';
 
@@ -23,4 +24,8 @@ export const getPosts = () => {
 
 export const getAllPostsByAuthor = (id: number) => {
   return axios.get<PostResponse[]>(`users/${id}/posts`);
+};
+
+export const getComments = (id: number) => {
+  return axios.get<CommentResponse[]>(`posts/${id}/comments`);
 };

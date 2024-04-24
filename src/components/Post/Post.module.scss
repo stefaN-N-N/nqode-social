@@ -40,4 +40,14 @@
 
     border-radius: $border-radius-md;
   }
+
+  &__show-comments {
+    color: $color-gray-400;
+    font-size: $fs-s;
+
+    &:hover {
+      cursor: pointer;
+      text-decoration: underline;
+    }
+  }
 }
