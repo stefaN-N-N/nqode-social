@@ -1,7 +1,12 @@
 import { useEffect, useState } from 'react';
 import UserResponse from 'src/model/UserResponse';
 import classes from './ProfileInfo.module.scss';
-import { countUserPosts } from 'src/services/UserService';
+import { countUserPosts, getFriends } from 'src/services/UserService';
+import Button from '../core/Button/Button';
+import { useRecoilState } from 'recoil';
+import { friendsState, loggedUser } from '../state/atom';
+import { sendRequest, unfriend } from 'src/services/FrienshipService';
+import { toast } from 'react-toastify';
 
 interface ProfileInfoProps {
   user: UserResponse;
@@ -9,12 +14,43 @@ interface ProfileInfoProps {
 
 const ProfileInfo: React.FC<ProfileInfoProps> = ({ user }) => {
   const [postsNumber, setPostsNumber] = useState();
+  const [currentLoggedUser, setCurrentLoggedUser] = useRecoilState(loggedUser);
+  const [friends, setFriends] = useRecoilState(friendsState);
 
   useEffect(() => {
     if (user.id) {
       countUserPosts(user.id).then((res) => setPostsNumber(res.data));
     }
   }, [user.id]);
+
+  useEffect(() => {
+    getFriends(user.id).then((response) => setFriends(response.data));
+  }, [setFriends, user.id]);
+
+  const handleSendRequest = () => {
+    sendRequest({ requesterId: currentLoggedUser.id, receiverId: user.id })
+      .then((response) => {
+        toast.success('Frienship request send');
+        setFriends((prev) => [...prev, response.data]);
+      })
+      .catch(() => {
+        toast.error('Something went wrong');
+      });
+  };
+
+  const handleUnfriend = () => {
+    unfriend(user.id, currentLoggedUser.id).then(() => {
+      setCurrentLoggedUser((prevUser) => ({
+        ...prevUser,
+        friendsNumber: prevUser.friendsNumber - 1
+      }));
+      setFriends(friends.filter((friend) => friend.id !== user.id));
+    });
+  };
+
+  const checkFrienship = () => {
+    return friends.some((friend) => friend.id === currentLoggedUser.id);
+  };
 
   return (
     <div className={`${classes['c-profile-info']}`}>
@@ -41,6 +77,13 @@ const ProfileInfo: React.FC<ProfileInfoProps> = ({ user }) => {
             <span className={`${classes['c-profile-info__number']}`}>{postsNumber}</span>
             <span className={`${classes['c-profile-info__label']}`}>Posts</span>
           </div>
+
+          {user.id !== currentLoggedUser.id && (
+            <Button
+              label={checkFrienship() ? 'Unfriend' : 'Send request'}
+              onClick={checkFrienship() ? handleUnfriend : handleSendRequest}
+            />
+          )}
         </div>
       </div>
     </div>

@@ -22,7 +22,7 @@ const TopBar = () => {
       <h1 className={`${classes['c-header-container__logo']}`}>nSocial</h1>
 
       <SearchBar setSearchResult={setSearchResult} />
-      <SearchResult searchResult={searchResult} />
+      <SearchResult searchResult={searchResult} setSearchResult={setSearchResult} />
 
       <Button
         label='Logout'
